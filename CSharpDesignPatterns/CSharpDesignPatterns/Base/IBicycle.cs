@@ -13,5 +13,10 @@ namespace CSharpDesignPatterns.Base
         decimal Price { get; }
 
         void Paint(BikeColor color);
+
+        void CleanFrame();
+        void AirTires();
+        void TestRide();
+
     }
 }
