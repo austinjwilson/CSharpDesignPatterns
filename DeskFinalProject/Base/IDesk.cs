@@ -12,5 +12,5 @@ namespace DeskFinalProject.Base
         DeskShape GetShape { get; }
         void Credenza();
         void Features();
-    }
-}
+    } // end class
+} // end namespace

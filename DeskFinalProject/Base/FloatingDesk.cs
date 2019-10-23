@@ -7,18 +7,23 @@ namespace DeskFinalProject.Base
 {
     public class FloatingDesk : IDesk
     {
-        
+        private DeskShape rectangle;
+        private SurfaceTop composite;
+
         public decimal Price { get; } = 75.00m;
         public FrameType MaterialType { get ;  }
         public DeskShape GetShape { get; }
+        public string Serial { get; private set; }
+
         public FloatingDesk(FrameType frame, DeskShape shape)
         {
             MaterialType = frame;
-            GetShape = shape;
+            GetShape = (rectangle = shape);
         }
 
         public FloatingDesk()
         {
+            Serial = CPUGenerator.Instance.NextCPU(DeskType.Floating);
         }
 
         public virtual void Credenza()
@@ -31,6 +36,15 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This desk can have an additional ");
         }
 
-    }
-}
+        public FloatingDesk(DeskShape rectangle)
+        {
+            this.rectangle = rectangle;
+        }
+
+        public FloatingDesk(SurfaceTop Composite)
+        {
+            this.composite = Composite;
+        }
+    } // end class 
+} // end namespace
 
