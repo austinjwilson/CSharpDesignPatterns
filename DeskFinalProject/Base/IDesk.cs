@@ -10,6 +10,11 @@ namespace DeskFinalProject.Base
         decimal Price { get; }
         FrameType MaterialType { get; } 
         DeskShape GetShape { get; }
+        object AddFeature { get; set; }
+        object AddSurfaceTop { get; }
+        object AddFrame { get; }
+        object AddFeatures { get; }
+
         void Credenza();
         void Features();
     } // end class

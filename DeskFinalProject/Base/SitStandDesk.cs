@@ -5,26 +5,32 @@ using System.Text;
 
 namespace DeskFinalProject.Base
 {
-    public class SitStandDesk : IDesk
+    public class SitStandDesk : AbstractDesk
     {
         private DeskShape LShape;
+        private FrameType metal;
 
-        public decimal Price { get; } = 625.00m;
+        public override decimal Price { get; } = 625.00m;
+        public override string ModelNumber { get; } = "STS9039";
         public FrameType MaterialType { get; }
         public DeskShape GetShape { get; }
-        public string Serial { get; private set; }
         public SurfaceTop Glass { get; }
 
-        public SitStandDesk(FrameType frame, DeskShape shape)
+        public SitStandDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+            : base(frame, shape, top)
         {
-            MaterialType = frame;
-            GetShape = (LShape = shape);
+
         }
 
         public SitStandDesk()
-        {
-            Serial = CPUGenerator.Instance.NextCPU(DeskType.Computer);
+            : this(FrameType.metal, DeskShape.LShaped, SurfaceTop.glass)
+        { 
+
         }
+        //public SitStandDesk()
+        //{
+            //Serial = CPUGenerator.Instance.NextCPU(DeskType.Computer);
+        //}
 
         public virtual void Credenza()
         {
@@ -36,15 +42,7 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This desk can have an additional ");
         }
 
-        public SitStandDesk(DeskShape LShape)
-        {
-            this.LShape = LShape;
-        }
-
-        public SitStandDesk(SurfaceTop Glass)
-        {
-            this.Glass = Glass;
-        }
+        
 
     } // end class
 } // end namespace

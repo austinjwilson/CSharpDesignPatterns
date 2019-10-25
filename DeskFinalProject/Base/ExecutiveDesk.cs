@@ -5,27 +5,34 @@ using System.Text;
 
 namespace DeskFinalProject.Base
 {
-    class ExecutiveDesk : IDesk
+    public class ExecutiveDesk : AbstractDesk
     {
-        private DeskShape Rectangle;
-        private DeskShape rectangle;
-        private object composite;
-
-        public decimal Price { get; } = 1515.00m;
-        public FrameType MaterialType { get; }
-        public DeskShape GetShape { get; }
+        public override decimal Price { get; } = 1515.00m;
+        public override string ModelNumber { get; } = "ED43500";
+        //public FrameType MaterialType { get; }
         public string Serial { get; private set; }
 
-        public ExecutiveDesk(FrameType frame, DeskShape shape)
+        public ExecutiveDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+            : base(frame, shape, top)
         {
-            MaterialType = frame;
-            GetShape = (Rectangle = shape);
-        }
 
-        public ExecutiveDesk()
-        {
-            Serial = CPUGenerator.Instance.NextCPU(DeskType.Executive);
         }
+        public ExecutiveDesk()
+            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite) 
+        {
+            
+        }
+        
+        
+            //Console.WriteLine(".");
+            //Console.WriteLine("composite.");
+            //Console.WriteLine(" rectangle shape.");
+        
+
+        //public ExecutiveDesk()
+        //{
+            //Serial = CPUGenerator.Instance.NextCPU(DeskType.Executive);
+        //}
 
         public virtual void Credenza()
         {
@@ -37,14 +44,7 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This desk can have an additional ");
         }
 
-        public ExecutiveDesk(DeskShape rectangle)
-        {
-            this.rectangle = rectangle;
-        }
-
-        public ExecutiveDesk(SurfaceTop Composite)
-        {
-            this.composite = composite;
-        }
+        
+        
     } // end class
 } // end namespace

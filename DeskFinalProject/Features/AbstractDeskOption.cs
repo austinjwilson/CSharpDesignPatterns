@@ -15,5 +15,7 @@ namespace DeskFinalProject.Features
             this.featuredDesk = desk;
         }
 
+        public override string ModelNumber { get; }
+
     } // end class
 } // end namespace

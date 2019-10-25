@@ -5,25 +5,28 @@ using DeskFinalProject.Singleton;
 
 namespace DeskFinalProject.Base
 {
-    public class FloatingDesk : IDesk
+    public class FloatingDesk : AbstractDesk
     {
         private DeskShape rectangle;
         private SurfaceTop composite;
+        private FrameType compostie;
+        internal static FrameType WireManagementContainer;
 
-        public decimal Price { get; } = 75.00m;
+        public override decimal Price { get; } = 75.00m;
         public FrameType MaterialType { get ;  }
         public DeskShape GetShape { get; }
-        public string Serial { get; private set; }
+        public override string ModelNumber { get; } = "DF1029";
 
-        public FloatingDesk(FrameType frame, DeskShape shape)
+        public FloatingDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+            : base(frame, shape, top)
         {
-            MaterialType = frame;
-            GetShape = (rectangle = shape);
+
         }
 
         public FloatingDesk()
+            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite)
         {
-            Serial = CPUGenerator.Instance.NextCPU(DeskType.Floating);
+            
         }
 
         public virtual void Credenza()
@@ -36,15 +39,9 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This desk can have an additional ");
         }
 
-        public FloatingDesk(DeskShape rectangle)
-        {
-            this.rectangle = rectangle;
-        }
-
-        public FloatingDesk(SurfaceTop Composite)
-        {
-            this.composite = Composite;
-        }
+        
+       
+        
     } // end class 
 } // end namespace
 

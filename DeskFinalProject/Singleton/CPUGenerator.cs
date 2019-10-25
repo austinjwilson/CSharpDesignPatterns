@@ -9,7 +9,6 @@ namespace DeskFinalProject.Singleton
     {
         private static volatile CPUGenerator instance;
         private static object sychronizationRoot = new object();
-        private int _count;
         private string _prefix;
 
         public static CPUGenerator Instance
@@ -30,7 +29,10 @@ namespace DeskFinalProject.Singleton
                 return instance;
             }
         }
-            private CPUGenerator() { }
+
+        public string Prefix { get => _prefix; set => _prefix = value; }
+
+        private CPUGenerator() { }
         public string NextCPU(DeskType type)
         {
             int value;
@@ -65,14 +67,10 @@ namespace DeskFinalProject.Singleton
                     _count = 4146;
                     value = ++_count;
                     return _prefix + value;
-                 
+
             }
 
         }
 
-
-
-    
-
-} // end class
+    } // end class
 }// end namespace

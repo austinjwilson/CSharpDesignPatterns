@@ -5,47 +5,32 @@ using System.Text;
 
 namespace DeskFinalProject.Base
 {
-    public class ComputerDesk : IDesk
+    public class ComputerDesk : AbstractDesk
     {
-        private DeskShape ushape;
-        private SurfaceTop wood;
+        public DeskShape UShaped { get; private set; }
 
-        public decimal Price { get; } = 1515.00m;
-        public FrameType MaterialType { get; }
-        public DeskShape GetShape { get; }
-        public object SerialNumbers { get; private set; }
-        public object Serial { get; }
+        private DeskShape lampwith2USBBuiltInPorts;
+        private DeskShape deskShape;
 
-        public ComputerDesk(FrameType frame, DeskShape shape)
+        public override decimal Price { get; } = 1515.00m;
+        public override string ModelNumber { get; } = "CO9014";
+        public new object Serial { get; }
+
+        //public override decimal Price => throw new NotImplementedException();
+
+        public ComputerDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+            :base(frame, shape, top)
         {
-            MaterialType = frame;
-            GetShape = (ushape = shape);
+            
         }
 
         public ComputerDesk()
+            :this(FrameType.wood,DeskShape.UShaped,SurfaceTop.wood)
         {
-            Serial = CPUGenerator.Instance.NextCPU(DeskType.Computer);
+            //Serial = CPUGenerator.Instance.NextCPU(DeskType.Computer);
         }
 
-        public virtual void Credenza()
-        {
-            Console.WriteLine("This credenza has 3 drawers and 4 wooden doors");
-        }
 
-        public virtual void Features()
-        {
-            Console.WriteLine("This desk can have an additional ");
-        }
-
-        public ComputerDesk(DeskShape ushape)
-        {
-            this.ushape = ushape;
-        }
-
-        public ComputerDesk(SurfaceTop Wood)
-        {
-            this.wood = Wood;
-        }
 
 
     } // end class

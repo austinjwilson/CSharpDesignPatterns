@@ -5,31 +5,35 @@ using System.Text;
 
 namespace DeskFinalProject.Base
 {
-    class RollTopDesk
+    public class RollTopDesk : AbstractDesk
     {
-        private DeskShape Rectangle;
-        private DeskShape rectangle;
-        private object wood;
+        
+        
+        
 
-        public decimal Price { get; } = 1899.00m;
-        public FrameType MaterialType { get; }
-        public DeskShape GetShape { get; }
-        public string Serial { get; private set; }
+        public override decimal Price { get; } = 1899.00m;
+        public override string ModelNumber { get; } = "RO3340";
+        public new FrameType MaterialType { get; }
+        public new DeskShape GetShape { get; }
+       
 
-        public RollTopDesk(FrameType frame, DeskShape shape)
+        public RollTopDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+           : base(frame, shape, top)
         {
-            MaterialType = frame;
-            GetShape = (Rectangle = shape);
+
         }
 
         public RollTopDesk()
-        {
-            Serial = CPUGenerator.Instance.NextCPU(DeskType.RollTop);
-        }
+            : this(FrameType.wood, DeskShape.Rectangle, SurfaceTop.wood) { }
+
+        //public RollTopDesk()
+        //{
+            //Serial = CPUGenerator.Instance.NextCPU(DeskType.RollTop);
+        //}
 
         public virtual void Credenza()
         {
-            Console.WriteLine("This has 6 drawers and 6 compartments for a credenza");
+            Console.WriteLine("This credenza has 6 drawers and 6 compartments");
         }
 
         public virtual void Features()
@@ -37,16 +41,7 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This desk can have an additional ");
         }
 
-        public RollTopDesk(DeskShape rectangle)
-        {
-            this.rectangle = rectangle;
-        }
-
-        public RollTopDesk(SufaceTop Wood)
-        {
-            this.wood = wood;
-        }
-
+       
 
     } // end class
 } // end namespace
