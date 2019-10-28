@@ -12,17 +12,24 @@ namespace DeskFinalProject
 
         static void Main(string[] args)
         {
-            FloatingDesk();
-            SitStandDesk();
-            ComputerDesk();
-            RollTop();
-            Executive();
+            //FloatingDesk();
+            //SitStandDesk();
+            //ComputerDesk();
+            //RollTop();
+            //Executive();
             OrderTaker taker = new OrderTaker();
             taker.BeginOrder();
-           
             //Test();
             //Features();
+            ShippingDocument();
         }
+
+        static void ShippingDocument()
+        {
+            Reciept reciept = new Reciept(List < AbstractDesk > desks);
+        }
+
+
         static void Executive()
         {
             ExecutiveDesk myexecutive = new ExecutiveDesk();

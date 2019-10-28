@@ -49,6 +49,11 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This credenza has 3 drawers and 4 wooden doors");
         }
 
+        public AbstractDesk()
+        {
+            
+        }
+
 
         //public AbstractDesk(FloatingDesk desk)
             //: this(FloatingDesk.WireManagementContainer, desk) { }

@@ -17,5 +17,11 @@ namespace DeskFinalProject.Features
 
         public override string ModelNumber { get; }
 
+        public List<AbstractDeskOption>
+        {
+
+        }
+
+
     } // end class
 } // end namespace
