@@ -8,7 +8,7 @@ namespace DeskFinalProject.Base
     public interface IDesk
     {
         decimal Price { get; }
-        FrameType MaterialType { get; } 
+        FrameType MaterialType { get; }
         DeskShape GetShape { get; }
         object AddFeature { get; set; }
         object AddSurfaceTop { get; }
@@ -17,5 +17,11 @@ namespace DeskFinalProject.Base
 
         void Credenza();
         void Features();
+
+        bool HasAccessory{get; set;}
+        decimal AccessoryPrice{ get; }
+        string AccessoryDescripton { get; }
+
+
     } // end class
 } // end namespace

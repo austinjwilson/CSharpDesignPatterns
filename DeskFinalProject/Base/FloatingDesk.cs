@@ -16,15 +16,17 @@ namespace DeskFinalProject.Base
         public FrameType MaterialType { get ;  }
         public DeskShape GetShape { get; }
         public override string ModelNumber { get; } = "DF1029";
-
-        public FloatingDesk(FrameType frame, DeskShape shape, SurfaceTop top)
-            : base(frame, shape, top)
+        public override decimal AccessoryPrice { get;  } = 50.0m;
+        public override string AccessoryDescripton { get; } = "Wire Management Container";
+        public override string DeskDescription { get; } = "Floating Desk";
+        public FloatingDesk(FrameType frame, DeskShape shape, SurfaceTop top, bool accessory)
+            : base(frame, shape, top, accessory)
         {
 
         }
 
-        public FloatingDesk()
-            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite)
+        public FloatingDesk(bool accessory)
+            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite, accessory)
         {
             
         }

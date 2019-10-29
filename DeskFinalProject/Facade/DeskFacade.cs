@@ -7,16 +7,16 @@ namespace DeskFinalProject.Facade
 {
     public class DeskFacade
     {
-        public void PrepareForSale(IDesk desk)
+        public void PrepareForSale(AbstractDesk desk)
         {
-            Reciept rec = new Reciept(desk);
+            //Reciept rec = new Reciept(desk);
             //rec.TrackingUPCNumber();
             //rec.PrintUPCNumber();
 
-            _ = desk.AddFeature;
-            _ = desk.AddSurfaceTop;
-            _ = desk.AddFrame;
-            _ = desk.AddFeatures;
+            //_ = desk.AddFeature;
+            //_ = desk.AddSurfaceTop;
+            //_ = desk.AddFrame;
+            //_ = desk.AddFeatures;
         }
 
     } // end class

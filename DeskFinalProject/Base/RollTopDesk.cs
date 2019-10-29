@@ -15,16 +15,18 @@ namespace DeskFinalProject.Base
         public override string ModelNumber { get; } = "RO3340";
         public new FrameType MaterialType { get; }
         public new DeskShape GetShape { get; }
-       
+        public override decimal AccessoryPrice { get; } = 25.0m;
+        public override string AccessoryDescripton { get; } = "Built In Cord Holder";
+        public override string DeskDescription { get; } = "Roll Top Desk";
 
-        public RollTopDesk(FrameType frame, DeskShape shape, SurfaceTop top)
-           : base(frame, shape, top)
+        public RollTopDesk(FrameType frame, DeskShape shape, SurfaceTop top, bool accessory)
+           : base(frame, shape, top, accessory)
         {
 
         }
 
-        public RollTopDesk()
-            : this(FrameType.wood, DeskShape.Rectangle, SurfaceTop.wood) { }
+        public RollTopDesk(bool accessory)
+            : this(FrameType.wood, DeskShape.Rectangle, SurfaceTop.wood, accessory) { }
 
         //public RollTopDesk()
         //{

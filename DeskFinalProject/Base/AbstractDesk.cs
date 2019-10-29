@@ -24,20 +24,20 @@ namespace DeskFinalProject.Base
         public object AddFeatures => ((IDesk)desk).AddFeatures;
 
         public abstract string ModelNumber { get; }
+        public bool HasAccessory { get; set; }
+        public abstract decimal AccessoryPrice { get; }
+        public abstract string AccessoryDescripton { get; }
+        public abstract string DeskDescription { get; }
 
-        public AbstractDesk(FrameType frame, DeskShape shape, SurfaceTop top)
+        public AbstractDesk(FrameType frame, DeskShape shape, SurfaceTop top, bool accessory)
         {
             MaterialType = frame;
             GetShape = shape;
             Surface = top;
+            HasAccessory = accessory;
         }
 
-        protected AbstractDesk(DeskShape getShape)
-        {
-            GetShape = getShape;
-        }
-
-      
+        
 
         public virtual void Features()
         {
@@ -49,10 +49,8 @@ namespace DeskFinalProject.Base
             Console.WriteLine("This credenza has 3 drawers and 4 wooden doors");
         }
 
-        public AbstractDesk()
-        {
-            
-        }
+        
+
 
 
         //public AbstractDesk(FloatingDesk desk)

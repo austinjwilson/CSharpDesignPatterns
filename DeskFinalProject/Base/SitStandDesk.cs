@@ -15,15 +15,19 @@ namespace DeskFinalProject.Base
         public FrameType MaterialType { get; }
         public DeskShape GetShape { get; }
         public SurfaceTop Glass { get; }
+        public override decimal AccessoryPrice { get; } = 70.0m;
+        public override string AccessoryDescripton { get; } = "Ergonomic Hand Rest with Matching Foot Rest";
+        public override string DeskDescription { get; } = "Sit Stand Desk";
 
-        public SitStandDesk(FrameType frame, DeskShape shape, SurfaceTop top)
-            : base(frame, shape, top)
+
+        public SitStandDesk(FrameType frame, DeskShape shape, SurfaceTop top, bool accessory)
+            : base(frame, shape, top, accessory)
         {
 
         }
 
-        public SitStandDesk()
-            : this(FrameType.metal, DeskShape.LShaped, SurfaceTop.glass)
+        public SitStandDesk(bool accessory)
+            : this(FrameType.metal, DeskShape.LShaped, SurfaceTop.glass, accessory)
         { 
 
         }

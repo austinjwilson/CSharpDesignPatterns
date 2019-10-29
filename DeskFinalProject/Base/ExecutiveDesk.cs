@@ -11,14 +11,16 @@ namespace DeskFinalProject.Base
         public override string ModelNumber { get; } = "ED43500";
         //public FrameType MaterialType { get; }
         public string Serial { get; private set; }
-
-        public ExecutiveDesk(FrameType frame, DeskShape shape, SurfaceTop top)
-            : base(frame, shape, top)
+        public override decimal AccessoryPrice { get; } = 75.0m;
+        public override string AccessoryDescripton { get; } = "2 Built In USB Ports and Power Strip";
+        public override string DeskDescription { get; } = "Executive Desk";
+        public ExecutiveDesk(FrameType frame, DeskShape shape, SurfaceTop top, bool accessory)
+            : base(frame, shape, top, accessory)
         {
-
+            Console.WriteLine();
         }
-        public ExecutiveDesk()
-            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite) 
+        public ExecutiveDesk(bool accessory)
+            : this(FrameType.composite, DeskShape.Rectangle, SurfaceTop.composite, accessory) 
         {
             
         }

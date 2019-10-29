@@ -78,23 +78,23 @@ namespace DeskFinalProject.Facade
             {
                 case "f":
                 case "FloatingDesk":
-                    deskList.Add(new FloatingDesk());
+                    deskList.Add(new FloatingDesk(true));
                     break;
                 case "s":
                 case "SitStandDesk":
-                    deskList.Add(new SitStandDesk());
+                    deskList.Add(new SitStandDesk(true));
                     break;
                 case "c":
                 case "ComputerDesk":
-                    deskList.Add(new ComputerDesk());
+                    deskList.Add(new ComputerDesk(true));
                     break;
                 case "r":
                 case "RollTopDesk":
-                    deskList.Add(new RollTopDesk());
+                    deskList.Add(new RollTopDesk(true));
                     break;
                 case "e":
                 case "ExecutiveDesk":
-                    deskList.Add(new ExecutiveDesk());
+                    deskList.Add(new ExecutiveDesk(true));
                     break;
             }
 
@@ -103,28 +103,26 @@ namespace DeskFinalProject.Facade
 
         public AbstractDesk CreateDefault(string type)
         {
-            switch(type.ToLower())
+            switch (type.ToLower())
             {
                 case "f":
                 case "FloatingDesk":
-                    return new FloatingDesk();
+                    return new FloatingDesk(false);
                 case "s":
-                case "SitStandDesk":                   
-                    return new SitStandDesk();
+                case "SitStandDesk":
+                    return new SitStandDesk(false);
                 case "c":
-                case "ComputerDesk":                    
-                    return new ComputerDesk();
+                case "ComputerDesk":
+                    return new ComputerDesk(false);
                 case "r":
-                case "RollTopDesk":                   
-                    return new RollTopDesk();
+                case "RollTopDesk":
+                    return new RollTopDesk(false);
                 case "e":
                 case "ExecutiveDesk":
-                default: 
-                    return new ExecutiveDesk();
+                default:
+                    return new ExecutiveDesk(false);
             } // end switch
         }
-
-       
 
     } // end class
 } // end namespace
